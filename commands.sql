@@ -3,6 +3,56 @@
 -- USER: C##CLINIC
 --------------------------------------------
 
+------------------------------------------------------------
+-- CLINIC MANAGEMENT SYSTEM DATABASE SETUP
+-- ORACLE XE
+------------------------------------------------------------
+
+------------------------------------------------------------
+-- STEP 1: LOGIN AS SYSDBA
+-- (Required to create database users)
+------------------------------------------------------------
+
+-- Example command in terminal:
+-- sqlplus sys as sysdba
+
+------------------------------------------------------------
+-- STEP 2: CREATE COMMON USER FOR THE PROJECT
+-- Oracle requires users created in CDB$ROOT to start with C##
+------------------------------------------------------------
+
+CREATE USER C##CLINIC IDENTIFIED BY clinic123;
+
+------------------------------------------------------------
+-- STEP 3: GRANT REQUIRED PRIVILEGES
+------------------------------------------------------------
+
+GRANT CONNECT TO C##CLINIC;
+GRANT RESOURCE TO C##CLINIC;
+
+GRANT CREATE TABLE TO C##CLINIC;
+GRANT CREATE VIEW TO C##CLINIC;
+GRANT CREATE TRIGGER TO C##CLINIC;
+GRANT CREATE PROCEDURE TO C##CLINIC;
+GRANT CREATE SEQUENCE TO C##CLINIC;
+
+------------------------------------------------------------
+-- STEP 4: ALLOW USER TO STORE DATA
+------------------------------------------------------------
+
+ALTER USER C##CLINIC QUOTA UNLIMITED ON USERS;
+
+------------------------------------------------------------
+-- STEP 5: SWITCH TO PROJECT USER
+------------------------------------------------------------
+
+CONNECT C##CLINIC/clinic123;
+
+------------------------------------------------------------
+-- ALL TABLES, TRIGGERS, AND DATA WILL NOW BE CREATED
+-- UNDER THE C##CLINIC SCHEMA
+------------------------------------------------------------
+
 --------------------------------------------
 -- 1. DEPARTMENT TABLE
 --------------------------------------------
