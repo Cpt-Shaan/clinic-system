@@ -7,7 +7,7 @@ function DoctorList({setDoctor}) {
 
   useEffect(()=>{
 
-    API.get("/doctors").then(res=>{
+    API.get("/doctor/all").then(res=>{
       setDoctors(res.data);
     });
 
