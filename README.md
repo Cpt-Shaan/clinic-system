@@ -192,10 +192,3 @@ This project is licensed under the MIT License.
 
 ---
 
-## Author
-
-**Shaan Vora**
-
-* GitHub: [View Profile](https://github.com/Cpt-Shaan)
-
----
